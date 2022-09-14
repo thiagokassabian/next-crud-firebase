@@ -54,5 +54,5 @@ export const updatePerson = async (id: string, person: IPerson): Promise<IPerson
 
 export const deletePerson = async (id: string): Promise<void> => {
 	const personDoc = doc(peopleCollection, id);
-	return await deleteDoc(personDoc);
+	await deleteDoc(personDoc);
 };

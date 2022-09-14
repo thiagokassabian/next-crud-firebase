@@ -21,17 +21,15 @@ const PersonForm = (props: IPersonProps) => {
 		const data = { ...values, age: Number(values.age) }
 		if (!person) {
 			console.log("add", data)
-			addPerson(data).then(result => {
-				console.log("add success", result)
-				router.push("/people")
-			})
+			const addedPerson = await addPerson(data)
+			console.log("add success", addedPerson)
+			router.push("/people")
 		} else {
 			delete data.id
 			console.log("update", data)
-			updatePerson(id!, data).then(result => {
-				console.log("update success", result)
-				router.push("/people")
-			})
+			const updatedPerson = await updatePerson(id!, data)
+			console.log("update success", updatedPerson)
+			router.push("/people")
 		}
 	}
 
