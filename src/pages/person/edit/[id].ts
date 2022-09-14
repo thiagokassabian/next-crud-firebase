@@ -1,12 +1,12 @@
-import Person from "../add";
+import { getPerson } from "../../../backend/config";
+import PersonForm from "../../../components/PersonForm";
 
-export default Person;
+export default PersonForm;
 
 export async function getServerSideProps({ params }: { params: { id: string; }; }) {
-	// const person = await userService.getById(params.id);
-	console.log(params.id);
+	const person = await getPerson(params.id);
 
 	return {
-		props: {}
+		props: { person: { ...person, id: params.id } }
 	};
 }
