@@ -38,7 +38,7 @@ const People: NextPage<IPeopleProps, any> = ({ people }: IPeopleProps) => {
 			<table className="w-full rounded overflow-hidden table-fixed">
 				<thead className="bg-slate-900 text-white">
 					<tr>
-						<th className="text-left py-2 px-4">ID</th>
+						<th className="hidden md:block text-left py-2 px-4">ID</th>
 						<th className="text-left py-2 px-4">Nome</th>
 						<th className="text-left py-2 px-4">Idade</th>
 						<th className="text-center py-2 px-4">Ações</th>
@@ -47,10 +47,10 @@ const People: NextPage<IPeopleProps, any> = ({ people }: IPeopleProps) => {
 				<tbody>
 					{peopleState.map((person, i) => (
 						<tr key={person.id} className={`border-b border-slate-200 ${i % 2 === 0 ? "bg-slate-100" : ""}`}>
-							<td className=" py-2 px-4">{person.id}</td>
-							<td className=" py-2 px-4">{person.name}</td>
-							<td className=" py-2 px-4">{person.age}</td>
-							<td className=" py-2 px-4 flex gap-2 justify-center">
+							<td className="hidden md:block py-2 px-4">{person.id}</td>
+							<td className="py-2 px-4">{person.name}</td>
+							<td className="py-2 px-4">{person.age}</td>
+							<td className="py-2 px-4 flex gap-2 justify-center">
 								<Link href={`/person/edit/${person.id}`} passHref>
 									<Button component="a">
 										<PencilIcon className="h-4 w-4" aria-label="Editar" />
